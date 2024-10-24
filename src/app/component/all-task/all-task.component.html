@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+
+<table class="table table-primary table-striped">
+  <thead>
+    <tr class="table-dark">
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Duedate</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Completed</th>
+      <th scope="col">update task</th>
+      <th scope="col">delete task</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks; let i = index" >
+
+      <td>{{i+1}}</td>
+      <td>{{task.title }}</td>
+      <td>{{task.description }}</td>
+      <td>{{task.duedate }}</td>
+      <td>{{task.priority }}</td>
+      <td>{{task.completed }}</td>
+      <td><button type="button" class="btn btn-info" [routerLink]="['/updateTask', task.id]">Update</button></td>
+      <td><button type="button" class="btn btn-danger" (click)="deleteTask(task)">Delete</button></td>
+
+    </tr>
+
+  </tbody>
+</table>

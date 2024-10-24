@@ -1,0 +1,17 @@
+<p>calender works!</p>
+<div class="calendar">
+  <div class="header">
+    <button (click)="changeMonth(-1)">Previous</button>
+    <h2>{{ currentMonth | date: 'MMMM yyyy' }}</h2>
+    <button (click)="changeMonth(1)">Next</button>
+  </div>
+  <div class="days">
+    <div class="day" *ngFor="let day of getDaysInMonth(currentMonth)">
+      <span>{{ day | date: 'd' }}</span>
+      <div *ngFor="let task of getTasksForDate(day)">
+        <div>{{ task.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
